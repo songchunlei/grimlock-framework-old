@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.grimlock</groupId>
+    <artifactId>grimlock-framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>grimlock-common</artifactId>
+  <name>grimlock-common</name>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+    <mybatisplus.version>2.1.6</mybatisplus.version>
+    <shiro.version>1.2.5</shiro.version>
+  </properties>
+
+    <dependencies>
+
+      <!-- MYSQL -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+      </dependency>
+      <!-- Spring Boot JDBC -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+      </dependency>
+
+      <!-- mybatis-plus begin -->
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatisplus-spring-boot-starter</artifactId>
+        <version>${mybatisplus-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus</artifactId>
+        <version>${mybatisplus.version}</version>
+      </dependency>
+    <!-- mybatis-plus end -->
+
+      <!-- shiro相关 -->
+      <dependency>
+        <groupId>org.apache.shiro</groupId>
+        <artifactId>shiro-spring</artifactId>
+        <version>${shiro.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.shiro</groupId>
+        <artifactId>shiro-ehcache</artifactId>
+        <version>${shiro.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.theborakompanioni</groupId>
+        <artifactId>thymeleaf-extras-shiro</artifactId>
+        <version>1.2.1</version>
+      </dependency>
+      <!-- shiro相关 end-->
+
+    </dependencies>
+
+</project>
