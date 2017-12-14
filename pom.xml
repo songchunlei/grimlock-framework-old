@@ -22,12 +22,13 @@
 
   <modules>
     <module>grimlock-security-web</module>
-    <module>grimlock-eureka</module>
+    <module>grimlock-eureka-server</module>
     <module>grimlock-auth</module>
     <module>grimlock-common</module>
       <module>grimlock-gateway</module>
       <module>grimlock-test-web</module>
       <module>grimlock-redis</module>
+      <module>grimlock-config-server</module>
   </modules>
   
   <dependencies>
