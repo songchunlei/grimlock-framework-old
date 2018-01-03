@@ -1,0 +1,27 @@
+# 上下文初始化加载
+info:
+  name: grimlock-sms-server
+  
+server:
+  port: 9002
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url:  jdbc:mysql://wjylinux:3306/grimlock
+    username: root
+    password: abc@123456
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  application:
+    name: grimlock-sms-server
+
+# 配置eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://scl:abc123456@localhost:8761/eureka
