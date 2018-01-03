@@ -22,8 +22,6 @@
 
   <modules>
     <module>grimlock-eureka-server</module>
-    <module>grimlock-auth</module>
-    <module>grimlock-gateway</module>
     <module>grimlock-redis</module>
     <module>grimlock-config-server</module>
     <module>grimlock-mq</module>
