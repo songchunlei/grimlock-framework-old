@@ -1,0 +1,62 @@
+info:
+  name: 配置中心
+  contact: chunlei.song@live.com
+
+server:
+  port: 8888
+# 使得/refresh不需要验权
+management: 
+  security: 
+    enabled: false
+
+# 访问时需要提供用户和密码
+security:
+  basic:
+    enable: true
+  # 这个接口不做用户名密码校验, /monitor接收git刷新通知
+  ignored: /monitor
+  user:
+    name: ${tony_config_server_security_name:tony}
+    password: ${tony_configserver_security_password:12345678}
+encrypt:
+  # 加解密用的秘钥
+  key: ${tony_configserver_encrypt_key:12345678}
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${tony_eureka_serviceUrl:http://127.0.0.1:8761/eureka/}
+  instance:
+    preferIpAddress: true
+    # 心跳间隔
+    leaseRenewalIntervalInSeconds: 10
+
+spring:
+  # rabbitmq的地址 用户名 密码
+  rabbitmq:
+    host: ${tony_public_rabbitmq_host:60.205.209.106}
+    username: ${tony_public_rabbitmq_username:guest}
+    password: ${tony_public_rabbitmq_password:guest}
+  application:
+    # 配置文件就是用这个来做文件名的，要对应的哦。
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        # 本地文件
+        native:
+          searchLocations: classpath:/configRepo
+        # git仓库 gitlab地址
+        git:
+          # 记得在先gitlab上创建一个对应的project
+          uri: ${tony_configserver_git_uri:"http://192.168.99.100:18080/root/configRepo.git"}
+          search-paths: /
+          username: ${tony_configserver_git_username:root}
+          password: ${tony_configserver_git_password:12345678}
+        # 加解密
+        encrypt:
+          enabled: true

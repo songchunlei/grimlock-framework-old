@@ -23,12 +23,15 @@
   <modules>
     <module>grimlock-eureka-server</module>
     <module>grimlock-redis</module>
-    <module>grimlock-config-server</module>
     <module>grimlock-mq</module>
     <module>grimlock-thread</module>
     <module>grimlock-admin-server</module>
-    <module>grimlock-config-server</module>
     <module>grimlock-sms-server</module>
+    <module>grimlock-uua-server</module>
+    <module>grimlock-gateway-server</module>
+      <module>grimlock-config-server</module>
+      <module>grimlock-jwt</module>
+      <module>grimlock-web</module>
   </modules>
   
   <dependencies>
@@ -62,6 +65,17 @@
                <groupId>com.alibaba</groupId>
                <artifactId>druid</artifactId>
                <version>1.0.11</version>
+           </dependency>
+           <dependency>
+               <groupId>io.jsonwebtoken</groupId>
+               <artifactId>jjwt</artifactId>
+               <version>0.7.0</version>
+           </dependency>
+           <!-- 日志格式化组件 -->
+           <dependency>
+               <groupId>net.logstash.logback</groupId>
+               <artifactId>logstash-logback-encoder</artifactId>
+               <version>4.11</version>
            </dependency>
        </dependencies>
    </dependencyManagement>

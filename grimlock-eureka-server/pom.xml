@@ -10,7 +10,7 @@
   <description>服务注册中心</description>
   
   
-  <dependencies>
+    <dependencies>
       <!--增加eureka-server的依赖-->
       <dependency>
           <groupId>org.springframework.cloud</groupId>
@@ -24,6 +24,37 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-security</artifactId>
       </dependency>
-  </dependencies>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>registry.cn-shanghai.aliyuncs.com/grimlock/framework/${project.artifactId}:${project.version}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!-- 以下两行是为了docker push到DockerHub使用的。 -->
+                    <serverId>docker-aliyun-hub</serverId>
+                    <registryUrl>registry.cn-hangzhou.aliyuncs.com/dongnao</registryUrl>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    </build>
     
 </project>

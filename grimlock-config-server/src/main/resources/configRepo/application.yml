@@ -1,0 +1,81 @@
+# 公共配置
+# 使得/refresh不需要验权
+management:
+  security:
+    enabled: false
+
+# jwt相关的配置
+token:
+  jwt:
+    key: a123456789
+    # 发放者
+    iss: uaa-interface
+    # 有效期120分钟
+    expm: 120
+
+spring:
+  # rabbitmq的地址 用户名 密码
+  rabbitmq:
+    host: 60.205.209.106
+    username: guest
+    password: guest
+  sleuth:
+    sampler:
+      # 1、采样比例
+      percentage: 1.0
+  # 2、接口调用信息推送到这个zipkin服务
+  zipkin: 
+    base-url: http://60.205.209.106:9411
+
+  cloud:
+    loadbalancer:
+      # 开启重试
+      retry:
+        enabled: true
+ribbon:
+  # 配置ribbon超时时间
+  ConnectTimeout: 1000
+  ReadTimeout: 3000
+  # 是否开启重试
+  OkToRetryOnAllOperations: true
+  # 重试期间，实例切换次数
+  MaxAutoRetriesNextServer: 3
+  # 当前实例重试次数
+  MaxAutoRetries: 0
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 80
+      maxQueueSize: 200
+      queueSizeRejectionThreshold: 20
+  command:
+    # 这是默认的配置
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          strategy: THREAD
+          thread:
+            # 10秒超时
+            timeoutInMilliseconds: 10000
+      fallback:
+        enabled: true
+        isolation:
+          semaphore:
+            # 调用降级策略的并发量
+            maxConcurrentRequests: 20
+      circuitBreaker:
+        enabled: true
+        # 10秒内超过5个请求
+        requestVolumeThreshold: 5
+        # 错误率超过80，开启熔断
+        errorThresholdPercentage: 80
+        # 10秒后进入半开启
+        sleepWindowInMilliseconds: 10000
+      metrics:
+        rollingStats:
+          # 10秒统计一次
+          timeInMilliseconds: 10000
+          numBuckets: 10
