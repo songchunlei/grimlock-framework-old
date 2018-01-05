@@ -20,22 +20,20 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <modules>
-        <module>grimlock-web</module>
-        <module>grimlock-eureka-server</module>
-        <module>grimlock-config-server</module>
-        <module>grimlock-redis</module>
-        <module>grimlock-mq</module>
-        <module>grimlock-thread</module>
-        <module>grimlock-admin-server</module>
-        <module>grimlock-sms-server</module>
-        <module>grimlock-uua-server</module>
-        <module>grimlock-gateway-server</module>
-        <module>grimlock-jwt</module>
-        <module>grimlock-rpc</module>
-        <module>grimlock-minimvc</module>
-        <module>grimlock-mongodb</module>
-    </modules>
+  <modules>
+    <module>grimlock-eureka-server</module>
+    <module>grimlock-redis</module>
+    <module>grimlock-mq</module>
+    <module>grimlock-thread</module>
+    <module>grimlock-admin-server</module>
+    <module>grimlock-sms-server</module>
+    <module>grimlock-uua-server</module>
+    <module>grimlock-gateway-server</module>
+      <module>grimlock-config-server</module>
+      <module>grimlock-jwt</module>
+      <module>grimlock-web</module>
+      <module>grimlock-mongodb</module>
+  </modules>
   
   <dependencies>
 
