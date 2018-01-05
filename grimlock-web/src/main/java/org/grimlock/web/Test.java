@@ -7,4 +7,7 @@ package org.grimlock.web;
  * @Modified By:
  */
 public class Test {
+    public static void main(String[] args) {
+
+    }
 }
