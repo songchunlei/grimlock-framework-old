@@ -8,7 +8,6 @@ import org.springframework.data.redis.connection.jredis.JredisUtils;
  */
 public class RedisProducer {
     public static void main(String[] args) {
-        JredisUtils jredisUtils = new JredisUtils() {
-        }
+
     }
 }

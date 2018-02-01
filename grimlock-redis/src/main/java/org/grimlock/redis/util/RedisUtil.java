@@ -1,7 +1,5 @@
 package org.grimlock.redis.util;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -112,7 +110,7 @@ public class RedisUtil {
 	 * list列表类型:先进后出栈形式,单个值插入
 	 * 
 	 * @param key
-	 * @param value
+	 * @param values
 	 * @return
 	 */
 	public void lpush(String key, String[] values) {
@@ -122,7 +120,8 @@ public class RedisUtil {
 	 * list列表类型:先进后出栈形式,单个值插入
 	 * 
 	 * @param key
-	 * @param value
+	 * @param start
+	 * @param end
 	 * @return
 	 */
 	public List<Object> lrange(String key, int start, int end) {
@@ -146,7 +145,6 @@ public class RedisUtil {
 	 * hash类型:返回 key 指定的哈希集中指定多个字段的值。
 	 * 
 	 * @param key
-	 * @param fields
 	 * @return
 	 */
 	public Map<String,String> hmget(String key) {
