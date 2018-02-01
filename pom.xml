@@ -36,6 +36,8 @@
       <module>grimlock-jwt</module>
       <module>grimlock-minimvc</module>
     <module>grimlock-mongodb</module>
+      <module>grimlock-express</module>
+      <module>grimlock-webservice</module>
   </modules>
   
   <dependencies>
